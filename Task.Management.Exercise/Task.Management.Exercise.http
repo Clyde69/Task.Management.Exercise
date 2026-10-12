@@ -1,16 +1,16 @@
-@Task.Management.Exercise_HostAddress = http://localhost:5192/api
+@TaskManagement.Exercise_HostAddress = http://localhost:5192/api
 
-GET {{Task.Management.Exercise_HostAddress}}/task/
+GET {{TaskManagement.Exercise_HostAddress}}/task/
 Accept: application/json
 
 ###
 
-PUT {{Task.Management.Exercise_HostAddress}}/task/
+PUT {{TaskManagement.Exercise_HostAddress}}/task/
 Accept: application/json
 
 ###
 
-PATCH {{Task.Management.Exercise_HostAddress}}/task/
+PATCH {{TaskManagement.Exercise_HostAddress}}/task/
 Accept: application/json
 
 ###

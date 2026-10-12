@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task.Management.Exercise.Tests.TaskController
+namespace TaskManagement.Exercise.Tests.TaskController
 {
     internal class Create
     {

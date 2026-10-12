@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37710.0 d17.14
+VisualStudioVersion = 17.14.37710.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.Management.Exercise", "Task.Management.Exercise\Task.Management.Exercise.csproj", "{AC463E16-A2D0-4C33-9EEE-A69A908BAF96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Exercise", "Task.Management.Exercise\TaskManagement.Exercise.csproj", "{AC463E16-A2D0-4C33-9EEE-A69A908BAF96}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.Management.Exercise.Tests", "Task.Management.Exercise.Tests\Task.Management.Exercise.Tests.csproj", "{5534D151-1A3C-4240-B63C-2AE04ED1287D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Exercise.Tests", "Task.Management.Exercise.Tests\TaskManagement.Exercise.Tests.csproj", "{5534D151-1A3C-4240-B63C-2AE04ED1287D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
