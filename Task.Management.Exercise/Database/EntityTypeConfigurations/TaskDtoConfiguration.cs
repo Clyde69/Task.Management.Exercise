@@ -10,6 +10,8 @@ namespace TaskManagement.Exercise.Database.EntityTypeConfigurations
         {
             builder.HasIndex(o => o.Id);
 
+            builder.Property(o => o.Id)
+                .IsRequired();
             builder.Property(o => o.Title)
                 .IsRequired();
             builder.Property(o => o.CreatedAt)

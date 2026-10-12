@@ -23,5 +23,12 @@ namespace TaskManagement.Exercise.Database.Repositories
                     w.Status.Equals(filter));
             });
         }
+
+        public async Task<TaskDto> Create(TaskDto newTask)
+        {
+            _dbContext.Tasks.Add(newTask);
+            await _dbContext.SaveChangesAsync();
+            return newTask;
+        }
     }
 }
