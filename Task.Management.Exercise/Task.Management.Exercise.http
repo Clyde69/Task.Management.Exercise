@@ -20,7 +20,7 @@ Accept: application/json
 Content-Type: application/json
 {
     "id": null,
-    "createdDate": "2026-10-12",
+    "createdAt": "2026-10-12",
     "title": "Test 2",
     "description": "This is a test",
     "status": 2
@@ -33,7 +33,7 @@ Accept: application/json
 Content-Type: application/json
 {
     "id": 0,
-    "createdDate": "2026-10-12",
+    "createdAt": "2026-10-12",
     "title": "Test 2",
     "description": "This is a test",
     "status": 2
@@ -46,7 +46,7 @@ Accept: application/json
 Content-Type: application/json
 {
     "id": 0,
-    "createdDate": "2026-10-12",
+    "createdAt": "2026-10-12",
     "title": null,
     "description": "This is a test",
     "status": 1
