@@ -30,5 +30,17 @@ namespace TaskManagement.Exercise.Database.Repositories
             await _dbContext.SaveChangesAsync();
             return newTask;
         }
+
+        public async Task<TaskDto> Update(TaskDto task)
+        {
+            if (!_dbContext.Tasks.Any(w => w.Id.Equals(task.Id)))
+            {
+                throw new KeyNotFoundException("No item in the database could be found to update.");
+            }
+
+            _dbContext.Tasks.Update(task);
+            await _dbContext.SaveChangesAsync();
+            return task;
+        }
     }
 }

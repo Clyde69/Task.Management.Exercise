@@ -51,6 +51,13 @@ namespace TaskManagement.Exercise.Tests.TaskRepository
                     var nextId = _tasks.Max(c => c.Id) + 1;
                     task.Id = nextId;
                     _tasks.Add(task);
+                }); 
+            _mockContext.Setup(c => c.Tasks.Update(It.IsAny<TaskDto>()))
+                .Callback((TaskDto task) =>
+                {
+                    var oldTask = _tasks.First(w => w.Id.Equals(task.Id));
+                    var index = _tasks.IndexOf(oldTask);
+                    _tasks[index] = task;
                 });
 
             _objectUnderTest = new TestArtifacts.TaskRepository(_mockContext.Object);

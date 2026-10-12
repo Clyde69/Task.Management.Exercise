@@ -23,6 +23,8 @@ namespace TaskManagement.Exercise.Tests.TaskRepository
             result.Title.Should().Be(newTask.Title);
             result.Description.Should().Be(newTask.Description);
             result.CreatedAt.Should().Be(newTask.CreatedAt);
+            _tasks.Count().Should().Be(13);
+            _tasks.Last().Should().BeEquivalentTo(result);
         }
 
         [Test]
@@ -42,6 +44,8 @@ namespace TaskManagement.Exercise.Tests.TaskRepository
             result.Title.Should().Be(newTask.Title);
             result.Description.Should().Be(newTask.Description);
             result.CreatedAt.Should().Be(newTask.CreatedAt);
+            _tasks.Count().Should().Be(13);
+            _tasks.Last().Should().BeEquivalentTo(result);
         }
     }
 }
