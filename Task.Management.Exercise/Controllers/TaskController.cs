@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using TaskManagement.Exercise.Database.Repositories;
 using TaskManagement.Exercise.Dtos;
+using TaskManagement.Exercise.Enums;
 
 namespace TaskManagement.Exercise.Controllers
 {
@@ -8,22 +11,41 @@ namespace TaskManagement.Exercise.Controllers
     [ApiController]
     public class TaskController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        private readonly ITaskRepository _taskRepository;
+
+        public TaskController(ITaskRepository taskRepository)
         {
-            throw new NotImplementedException();
+            _taskRepository = taskRepository;
         }
+        [HttpGet]
+        [ProducesResponseType<IEnumerable<TaskDto>>(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll()
+            => Ok(await _taskRepository.Get(Status.All));
+
+        [HttpGet("{status}")]
+        [ProducesResponseType<IEnumerable<TaskDto>>(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll(Status status)
+            => Ok(await _taskRepository.Get(status));
 
         [HttpPut]
-        public IActionResult Create()
-        {
-            throw new NotImplementedException();
-        }
+        [ProducesResponseType<TaskDto>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Create(TaskDto task)
+            => Ok(await _taskRepository.Create(task));
 
-        [HttpPatch]
-        public IActionResult Complete()
+        [HttpPatch("{id}")]
+        [ProducesResponseType<TaskDto>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Complete(int id)
         {
-            throw new NotImplementedException();
+            var item = await _taskRepository.GetById(id);
+
+            if (item is null)
+            {
+                throw new KeyNotFoundException($"A task with the id {id} is not present.");
+            }
+            item.Status = Status.Complete;
+            return Ok(await _taskRepository.Update(item));
         }
     }
 }

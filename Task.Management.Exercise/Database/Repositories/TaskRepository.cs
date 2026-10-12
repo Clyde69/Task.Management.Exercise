@@ -4,7 +4,7 @@ using TaskManagement.Exercise.Enums;
 
 namespace TaskManagement.Exercise.Database.Repositories
 {
-    public class TaskRepository
+    public class TaskRepository : ITaskRepository
     {
         private readonly TaskManagementDbContext _dbContext;
 
@@ -17,15 +17,24 @@ namespace TaskManagement.Exercise.Database.Repositories
         {
             return Task.Run(() =>
             {
-                return _dbContext.Tasks.Where(w => 
+                return _dbContext.Tasks.Where(w =>
                     filter.Equals(Status.All)
                     ||
                     w.Status.Equals(filter));
             });
         }
 
+        public Task<TaskDto?> GetById(int id)
+        {
+            return Task.Run(() =>
+            {
+                return _dbContext.Tasks.FirstOrDefault(w => w.Id.Equals(id));
+            });
+        }
+
         public async Task<TaskDto> Create(TaskDto newTask)
         {
+            newTask.Id = null;
             _dbContext.Tasks.Add(newTask);
             await _dbContext.SaveChangesAsync();
             return newTask;

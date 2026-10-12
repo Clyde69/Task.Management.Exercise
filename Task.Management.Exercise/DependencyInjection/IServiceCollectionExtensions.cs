@@ -14,7 +14,7 @@ namespace TaskManagement.Exercise.DependencyInjection
 
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped<TaskRepository>();
+            services.AddScoped<ITaskRepository, TaskRepository>();
 
             return services;
         }

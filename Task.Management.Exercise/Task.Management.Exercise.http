@@ -5,12 +5,56 @@ Accept: application/json
 
 ###
 
-PUT {{TaskManagement.Exercise_HostAddress}}/task/
+GET {{TaskManagement.Exercise_HostAddress}}/task/1
 Accept: application/json
 
 ###
 
-PATCH {{TaskManagement.Exercise_HostAddress}}/task/
+GET {{TaskManagement.Exercise_HostAddress}}/task/2
+Accept: application/json
+
+###
+
+PUT {{TaskManagement.Exercise_HostAddress}}/task/
+Accept: application/json
+Content-Type: application/json
+{
+    "id": null,
+    "createdDate": "2026-10-12",
+    "title": "Test 2",
+    "description": "This is a test",
+    "status": 2
+}
+
+###
+
+PUT {{TaskManagement.Exercise_HostAddress}}/task/
+Accept: application/json
+Content-Type: application/json
+{
+    "id": 0,
+    "createdDate": "2026-10-12",
+    "title": "Test 2",
+    "description": "This is a test",
+    "status": 2
+}
+
+###
+
+PUT {{TaskManagement.Exercise_HostAddress}}/task/
+Accept: application/json
+Content-Type: application/json
+{
+    "id": 0,
+    "createdDate": "2026-10-12",
+    "title": null,
+    "description": "This is a test",
+    "status": 1
+}
+
+###
+
+PATCH {{TaskManagement.Exercise_HostAddress}}/task/1
 Accept: application/json
 
 ###
